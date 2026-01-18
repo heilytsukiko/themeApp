@@ -1,11 +1,11 @@
-import Card from './Card'
+import LangCard from './LangCard'
+import ThemeCard from './ThemeCard'
 import './App.css'
 
 function App() {
   return (
     <>
-      <h1>главная</h1>
-      <Card/>
+      <ThemeCard/>
     </>
   )
 }
