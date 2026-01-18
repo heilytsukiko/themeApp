@@ -1,4 +1,3 @@
-import LangCard from './LangCard'
 import ThemeCard from './ThemeCard'
 import './App.css'
 

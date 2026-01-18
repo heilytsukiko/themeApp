@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import LanguageReducer from './Language';
+import ThemeReducer from './slices/Theme'
 
 const store = configureStore({
     reducer: {
-        lang: LanguageReducer,
+        theme: ThemeReducer,
     },
 })
 export type TRootState = ReturnType<typeof store.getState>;
