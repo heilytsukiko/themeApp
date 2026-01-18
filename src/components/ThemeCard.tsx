@@ -39,7 +39,7 @@ export default function ThemeCard(){
     <div className='theme-card-wrapper' style={{backgroundColor: style.bgColor}}>
       <div className='theme-card' style={{backgroundColor: style.cardBgColor}}>
         <div className='theme-card-img'>
-          <img src="public\Vector.png" alt=""/>
+          <img src="public/BgImage.png" alt=""/>
         </div>
         <p className="card-title" style={{color: style.titleColor}}>Текущая тема: </p>
         <p className="card-description" style={{color: style.descriptionColor}}>Светлая</p>
