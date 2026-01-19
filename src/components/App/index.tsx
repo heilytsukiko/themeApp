@@ -1,5 +1,5 @@
-import ThemeCard from './ThemeCard'
-import './App.css'
+import ThemeCard from '../Card'
+import './style.css'
 
 function App() {
   return (
