@@ -1,11 +1,11 @@
-import ThemeCard from '../Card'
-import './style.css'
+import Home from '../../pages/Home'
+import './styles.css'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <ThemeCard/>
-    </>
+    <div>
+      <Home/>
+    </div>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import type {TRootState} from '../../store/index';
 import {changeTheme, type Theme} from '../../store/slices/Theme';
-import './style.css'
+import './styles.css'
 
 interface ITheme{
   bgColor: string,
