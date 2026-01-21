@@ -12,7 +12,7 @@ const ThemeCard = () => {
   }
 
   return (
-    <div className={`theme-card ${currentThemeStore === 'light' ? 'dark' : 'light'}`}>
+    <div className={`theme-card ${currentThemeStore === 'light' ? 'light' : 'dark'}`}>
       <div className='theme-card-img'>
         <img src="/themeApp/BgImage.png" alt=""/>
       </div>

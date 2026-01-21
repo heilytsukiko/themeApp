@@ -53,24 +53,34 @@
 .theme-card.light {
   background-color: rgba(255, 255, 255, 1);
 }
-.light .card-title{
+.theme-card.light .card-title{
   color: rgba(0, 0, 0, 0.87);
 }
-.light .card-description{
+.theme-card.light .card-description{
   color: rgba(0, 0, 0, 0.6);
 }
-.light .card-button{
+.theme-card.light .card-button{
   color: rgba(56, 112, 201, 1);
+}
+.theme-card.light .card-button:hover{
+  color: rgb(37, 74, 134);
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 .theme-card.dark{
   background-color: rgba(210, 189, 0, 1);
 }
-.dark .card-title{
+.theme-card.dark .card-title{
   color: rgba(71, 0, 184, 0.87);
 }
-.dark .card-description{
+.theme-card.dark .card-description{
   color: rgba(71, 0, 184, 0.6);
 }
-.dark .card-button{
+.theme-card.dark .card-button{
   color: rgba(255, 255, 255, 1);
+}
+.theme-card.dark .card-button:hover{
+  color: rgb(208, 208, 208);
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
