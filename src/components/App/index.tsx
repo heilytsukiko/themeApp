@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux'
+import type { TRootState } from '../../store'
+import { type Theme } from '../../store/slices/Theme'
 import Home from '../../pages/Home'
 import './styles.css'
 
 const App = () => {
+  const currentTheme: Theme = useSelector((state:TRootState) => state.theme.currentTheme)
   return (
-    <div>
+    <div className={`app ${currentTheme === 'light' ? 'dark' : 'light'}`}>
       <Home/>
     </div>
   )

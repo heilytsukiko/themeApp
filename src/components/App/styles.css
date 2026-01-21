@@ -8,3 +8,15 @@ body{
 p{
   margin: 0;
 }
+.app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.app.light{
+  background-color: rgba(255, 255, 255, 1);
+}
+.app.light{
+  background-color: rgba(46, 46, 46, 1);
+}

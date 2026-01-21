@@ -1,12 +1,3 @@
-
-.theme-card-wrapper {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .theme-card{
   text-align: start;
   width: 211px;
@@ -16,24 +7,6 @@
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
   0px 1px 1px 0px rgba(0, 0, 0, 0.14),
   0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-}
-.card-title{
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 160%;
-}
-.card-description{
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 150%;
-  margin-bottom: 28px;
-}
-.card-button{
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 .theme-card-img{
   width: 136px;
@@ -58,4 +31,46 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-image: url('public/RoadSign.png');
+}
+.card-title{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 160%;
+}
+.card-description{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 28px;
+}
+.card-button{
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.theme-card.light {
+  background-color: rgba(255, 255, 255, 1);
+}
+.light .card-title{
+  color: rgba(0, 0, 0, 0.87);
+}
+.light .card-description{
+  color: rgba(0, 0, 0, 0.6);
+}
+.light .card-button{
+  color: rgba(56, 112, 201, 1);
+}
+.theme-card.dark{
+  background-color: rgba(210, 189, 0, 1);
+}
+.dark .card-title{
+  color: rgba(71, 0, 184, 0.87);
+}
+.dark .card-description{
+  color: rgba(71, 0, 184, 0.6);
+}
+.dark .card-button{
+  color: rgba(255, 255, 255, 1);
 }
