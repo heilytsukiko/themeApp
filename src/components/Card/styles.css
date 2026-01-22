@@ -1,27 +1,32 @@
-.theme-card{
+.card{
   text-align: start;
-  width: 211px;
-  height: 320px;
+
+  width: 15rem;
+  min-width: 100px;
+  max-width: 210px;
+  height: 23rem;
   padding: 16px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-  0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 0.5rem;
+  box-shadow:var(--bg-color-shadow);
+  background-color: var(--card-bg-color);
 }
-.theme-card-img{
+
+.card-img{
   width: 136px;
   height: 109px;
   position: relative;
   z-index: 1;
-  margin: 44px auto 44px auto
+  margin: 2.75rem auto 2.75rem auto
 }
-.theme-card-img img{
+
+.card-img img{
   position: relative;
   z-index: 0; 
   width: 100%;
   height: auto;
 }
-.theme-card-img::before{
+
+.card-img::before{
   position: absolute;
   width: 83px;
   height: 74px;
@@ -32,55 +37,32 @@
   transform: translate(-50%, -50%);
   background-image: url('public/RoadSign.png');
 }
+
 .card-title{
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   line-height: 160%;
+  color: var(--title-color);
 }
+
 .card-description{
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 150%;
   margin-bottom: 28px;
+  color: var(--description-color);
 }
+
 .card-button{
   border: 0;
   padding: 0;
   background-color: transparent;
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--button-color);
 }
-.theme-card.light {
-  background-color: rgba(255, 255, 255, 1);
-}
-.theme-card.light .card-title{
-  color: rgba(0, 0, 0, 0.87);
-}
-.theme-card.light .card-description{
-  color: rgba(0, 0, 0, 0.6);
-}
-.theme-card.light .card-button{
-  color: rgba(56, 112, 201, 1);
-}
-.theme-card.light .card-button:hover{
-  color: rgb(37, 74, 134);
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-.theme-card.dark{
-  background-color: rgba(210, 189, 0, 1);
-}
-.theme-card.dark .card-title{
-  color: rgba(71, 0, 184, 0.87);
-}
-.theme-card.dark .card-description{
-  color: rgba(71, 0, 184, 0.6);
-}
-.theme-card.dark .card-button{
-  color: rgba(255, 255, 255, 1);
-}
-.theme-card.dark .card-button:hover{
-  color: rgb(208, 208, 208);
-  transition: color 0.3s ease;
+
+.card-button:hover{
+  color: var(--button-color-hover);
   cursor: pointer;
 }

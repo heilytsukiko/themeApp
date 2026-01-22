@@ -1,0 +1,44 @@
+*{
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+    font-family: monospace;
+}
+:root{
+    --white: rgba(255, 255, 255, 1);
+    --grey: rgba(46, 46, 46, 1);
+    --black-1: rgba(0, 0, 0, 0.87);
+    --black-2: rgba(0, 0, 0, 0.6);
+    --blue-1: rgba(56, 112, 201, 1);
+    --yellow: rgba(210, 189, 0, 1);
+    --blue-2: rgba(71, 0, 184, 0.87);
+}
+
+[class*='light']{
+    --bg-color: var(--white);
+    --bg-color-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+              0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+              0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --card-bg-color: var(--white);
+    --title-color: var(--black-1);
+    --description-color: color-mix(in srgb, var(--black-1), white 20%);
+    --button-color: var(--blue-1);
+    --button-color-hover: color-mix(in srgb, var(--blue-1), black 30%);
+}
+
+[class*='dark']{
+    --bg-color: var(--grey);
+    --bg-color-shadow: 0px 3px 4px -1px rgba(0, 8, 255, 0.6),
+              0px 2px 2px 0px rgba(0, 8, 255, 0.4),
+              0px 2px 4px 0px rgba(0, 8, 255, 0.4);
+    --card-bg-color: var(--yellow);
+    --title-color: var(--blue-2);
+    --description-color: color-mix(in srgb, var(--blue-2), white 20%);
+    --button-color: var(--white);
+    --button-color-hover: color-mix(in srgb, var(--white), black 20%);
+}
+
+@media(max-width: 480px){
+    *{
+        font-size: 12px;
+    }
+}

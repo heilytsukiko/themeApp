@@ -3,18 +3,19 @@ import type {TRootState} from '../../store/index';
 import {changeTheme, type Theme} from '../../store/slices/Theme';
 import './styles.css'
 
-const ThemeCard = () => {
+const Card = () => {
   const dispatch = useDispatch();
   const currentThemeStore: Theme = useSelector((state:TRootState) => state.theme.currentTheme)
-  
+  const theme = currentThemeStore === 'light' ? 'dark' : 'light'
+
   const toggle = () => {
-    dispatch(changeTheme(currentThemeStore === 'light' ? 'dark' : 'light'))
+    dispatch(changeTheme(theme))
   }
 
   return (
-    <div className={`theme-card ${currentThemeStore === 'light' ? 'light' : 'dark'}`}>
-      <div className='theme-card-img'>
-        <img src="/themeApp/BgImage.png" alt=""/>
+    <div className={`card`}>
+      <div className='card-img'>
+        <img src="/BgImage.png" alt=""/>
       </div>
       <p className="card-title">Текущая тема: </p>
       <p className="card-description">{currentThemeStore === 'light' ? 'Светлая' : 'Темная'}</p>
@@ -22,4 +23,4 @@ const ThemeCard = () => {
     </div>
   )
 }
-export default ThemeCard;
+export default Card;

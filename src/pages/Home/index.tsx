@@ -1,10 +1,9 @@
-import ThemeCard from "../../components/Card"
-import './styles.css'
+import Card from "../../components/Card"
 
 const Home: React.FC = () => {
     return(
         <div className="Home">
-            <ThemeCard/>
+            <Card/>
         </div>
     )
 }
