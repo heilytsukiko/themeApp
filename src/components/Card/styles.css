@@ -1,6 +1,5 @@
 .card{
   text-align: start;
-
   width: 15rem;
   min-width: 100px;
   max-width: 210px;
@@ -16,7 +15,7 @@
   height: 109px;
   position: relative;
   z-index: 1;
-  margin: 2.75rem auto 2.75rem auto
+  margin: 2.75rem auto 2.75rem auto;
 }
 
 .card-img img{
@@ -35,7 +34,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url('public/RoadSign.png');
+  background-image: url('@assets/RoadSign.svg');
 }
 
 .card-title{
