@@ -6,8 +6,10 @@ interface ThemeState{
     currentTheme: Theme,
 }
 
+const localTheme = window.localStorage.getItem('theme') as Theme; 
+
 const initialState: ThemeState = {
-    currentTheme: 'light',
+    currentTheme: localTheme,
 }
 
 const appSlice = createSlice({
@@ -16,6 +18,7 @@ const appSlice = createSlice({
     reducers: {
         changeTheme: (state, action: PayloadAction<Theme>) => {
             state.currentTheme = action.payload;
+            window.localStorage.setItem('theme', state.currentTheme)
         }
     }
 })

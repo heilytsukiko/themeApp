@@ -7,7 +7,7 @@ import './styles.css'
 const App = () => {
   const currentTheme: Theme = useSelector((state:TRootState) => state.theme.currentTheme)
   return (
-    <div className={`app ${currentTheme === 'light' ? 'dark' : 'light'}`}>
+    <div className={`app ${currentTheme === 'light' ? 'light' : 'dark'}`}>
       <Home/>
     </div>
   )
