@@ -1,9 +1,10 @@
-import Card from "@components/Card"
+// import Card from "@components/Card"
+import DSNotification from "@/components/DsNotification";
 
 const Home: React.FC = () => {
     return(
         <div className="Home">
-            <Card/>
+            <DSNotification backgroundColor="green" label="Ehreif"/>
         </div>
     )
 }

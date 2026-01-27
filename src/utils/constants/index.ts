@@ -1,0 +1,1 @@
+export const svgSpriteSrcPrefix: string = "./assets/images/sprite.svg#";
