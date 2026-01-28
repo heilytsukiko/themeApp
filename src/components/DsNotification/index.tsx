@@ -6,14 +6,12 @@ import "./style.css";
 export type TNotificationTypes = "warning" | "info";
 
 //тип для определения маркированности, нумерованности или отсутсвия маркеров
-type listType = "none" | "mark" | "number"
-
-// если поле list передано, то listMark обязателен
-type listProp = {list: undefined; listType: undefined} | {list: (string | number)[]; listMark: listType}
+type listTypes = "none" | "mark" | "number"
 
 export interface IFlexibleAlertProps {
     label?: string;
-    list?: listProp;
+    list?: (string | number)[];
+    listMark?: listTypes;
     type?: TNotificationTypes;
     backgroundColor?: string;
     textColor?: string;
@@ -39,6 +37,7 @@ const DEFAULT_ICON_SIZE: string = "19px";
 const DSNotification = ({
     label="",
     list,
+    listMark = "none",
     type=NotificationTypes.warning,
     backgroundColor=NotificationBackgroundColors.beige,
     textColor="black",
@@ -49,7 +48,6 @@ const DSNotification = ({
     fullWidth=false,
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
-    const isList = list?.list; //хранит именно сам массив
 
     return (
         <div
@@ -68,15 +66,37 @@ const DSNotification = ({
             }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
             >
-                {list && 
-                    <ul>
-                        {isList.map ((item) => 
+                {label && !list && label}
+
+                {list && (listMark != 'mark' || 'none') && (listMark === 'number') &&
+                    <ol className="list">
+                        {list.map ((item) => 
                             <li key={item}>{item}</li>
                         )}
-                    </ul>}
+                    </ol>
+                }
+                
+                {list && (listMark === 'mark' || 'none' ) && (listMark != 'number') &&
+                    <ul className={`list ${listMark === 'none'?  'mark-none' : ''}`}>
+                        {list.map ((item) => 
+                            <li key={item}>{item}</li>
+                        )}
+                    </ul>
+                }
             </Alert>
         </div>
     );
 };
 
 export default DSNotification;
+
+/* Что нужно сделать:
+0. label | list
+1. позиционирование SVG картинки: flex-start, center, flex-end
+2. border
+3. SVG size
+4. Paddings
+5. Font-size
+6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
+7. Ширина карточек
+*/
