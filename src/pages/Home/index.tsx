@@ -12,7 +12,8 @@ const Home: React.FC = () => {
                 textColor="white"
                 content={arr}
                 listMark='none'
-                
+                cardWidth='middle'
+                borderRadius={25}
             />
         </div>
     )

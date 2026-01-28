@@ -20,6 +20,7 @@ export interface IFlexibleAlertProps {
     backgroundColor?: string;
     textColor?: string;
     borderColor?: string;
+    borderRadius?: number;
     iconName?: string;
     iconSize?: string;
     iconColor?: string;
@@ -46,6 +47,7 @@ const DSNotification = ({
     backgroundColor=NotificationBackgroundColors.beige,
     textColor="black",
     borderColor=NotificationBackgroundColors.lightSand,
+    borderRadius = 6,
     iconName="warningIcon",
     iconSize=DEFAULT_ICON_SIZE,
     iconColor="#BD7D22",
@@ -70,16 +72,20 @@ const DSNotification = ({
             style={{
                 width: fullWidth ? "100%" : `${currentWidth}px`,
                 border: `1px solid ${dsBorderColor}`,
+                borderRadius: `${borderRadius}px`,
             }}
         >
             <Alert
                 className={`ds-mui-alert ds-alert-${type}`}
-                sx={{
+                // использовала style вместо sx, так как borderRadius не работал с sx
+                style={{
                     backgroundColor: backgroundColor,
                     color: textColor,
                     width: fullWidth ? "100%" : "auto",
-            }}
+                    borderRadius: `${borderRadius}px`,
+                }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
+                
             >
                 {!isArray && content}
 
