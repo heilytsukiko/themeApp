@@ -11,13 +11,7 @@ type list = (string | number)[];
 //тип для определения маркированности, нумерованности или отсутсвия маркеров
 type listTypes = "none" | "mark" | "number"
 
-enum widthSizes{
-    'small' =  387,
-    'middle' =  500,
-    'large' =  692,
-}
-
-type widthTypes = keyof typeof widthSizes;
+type widthTypes = 'small' | 'middle' | 'large';
 
 export interface IFlexibleAlertProps {
     content: list | label;
@@ -59,7 +53,15 @@ const DSNotification = ({
     cardWidth,
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
+
     const isArray = Array.isArray(content);
+
+    const widthSizes = {
+        'small': 387,
+        'middle': 500,
+        'large': 692,
+    }
+    
     const currentWidth = cardWidth != undefined ? widthSizes[cardWidth] : undefined
 
     return (

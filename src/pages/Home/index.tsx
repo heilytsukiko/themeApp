@@ -12,6 +12,7 @@ const Home: React.FC = () => {
                 textColor="white"
                 content={arr}
                 listMark='none'
+                
             />
         </div>
     )
