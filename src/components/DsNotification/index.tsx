@@ -5,12 +5,14 @@ import "./style.css";
 
 export type TNotificationTypes = "warning" | "info";
 
+type label = string;
+type list = (string | number)[];
+
 //тип для определения маркированности, нумерованности или отсутсвия маркеров
 type listTypes = "none" | "mark" | "number"
 
 export interface IFlexibleAlertProps {
-    label?: string;
-    list?: (string | number)[];
+    content: list | label;
     listMark?: listTypes;
     type?: TNotificationTypes;
     backgroundColor?: string;
@@ -35,8 +37,7 @@ export enum NotificationTypes {
 const DEFAULT_ICON_SIZE: string = "19px";
 
 const DSNotification = ({
-    label="",
-    list,
+    content,
     listMark = "none",
     type=NotificationTypes.warning,
     backgroundColor=NotificationBackgroundColors.beige,
@@ -48,7 +49,9 @@ const DSNotification = ({
     fullWidth=false,
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
+    const isArray = Array.isArray(content);
 
+    console.log("content: " + content)
     return (
         <div
             className="ds-notification"
@@ -66,20 +69,20 @@ const DSNotification = ({
             }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
             >
-                {label && !list && label}
+                {!isArray && content}
 
-                {list && (listMark != 'mark' || 'none') && (listMark === 'number') &&
+                {isArray && (listMark != 'mark' || 'none') && (listMark === 'number') &&
                     <ol className="list">
-                        {list.map ((item) => 
-                            <li key={item}>{item}</li>
+                        {content.map ((item) => 
+                            <li key={item}> {item} </li>
                         )}
                     </ol>
                 }
                 
-                {list && (listMark === 'mark' || 'none' ) && (listMark != 'number') &&
+                {isArray && (listMark === 'mark' || 'none' ) && (listMark != 'number') &&
                     <ul className={`list ${listMark === 'none'?  'mark-none' : ''}`}>
-                        {list.map ((item) => 
-                            <li key={item}>{item}</li>
+                        {content.map ((item) => 
+                            <li key={item}> {item} </li>
                         )}
                     </ul>
                 }

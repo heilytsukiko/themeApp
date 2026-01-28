@@ -10,7 +10,7 @@ const Home: React.FC = () => {
                 backgroundColor="rgba(195, 71, 59, 1)"
                 borderColor="white"
                 textColor="white"
-                list={arr}
+                content={arr}
                 listMark='none'
             />
         </div>
