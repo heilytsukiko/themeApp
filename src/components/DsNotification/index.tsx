@@ -11,6 +11,14 @@ type list = (string | number)[];
 //тип для определения маркированности, нумерованности или отсутсвия маркеров
 type listTypes = "none" | "mark" | "number"
 
+enum widthSizes{
+    'small' =  387,
+    'middle' =  500,
+    'large' =  692,
+}
+
+type widthTypes = keyof typeof widthSizes;
+
 export interface IFlexibleAlertProps {
     content: list | label;
     listMark?: listTypes;
@@ -22,6 +30,7 @@ export interface IFlexibleAlertProps {
     iconSize?: string;
     iconColor?: string;
     fullWidth?: boolean;
+    cardWidth?: widthTypes;
 }
 
 export enum NotificationBackgroundColors {
@@ -47,16 +56,17 @@ const DSNotification = ({
     iconSize=DEFAULT_ICON_SIZE,
     iconColor="#BD7D22",
     fullWidth=false,
+    cardWidth,
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
     const isArray = Array.isArray(content);
+    const currentWidth = cardWidth != undefined ? widthSizes[cardWidth] : undefined
 
-    console.log("content: " + content)
     return (
         <div
             className="ds-notification"
             style={{
-                width: fullWidth ? "100%" : "auto",
+                width: fullWidth ? "100%" : `${currentWidth}px`,
                 border: `1px solid ${dsBorderColor}`,
             }}
         >
@@ -94,12 +104,10 @@ const DSNotification = ({
 export default DSNotification;
 
 /* Что нужно сделать:
-0. label | list
 1. позиционирование SVG картинки: flex-start, center, flex-end
 2. border
 3. SVG size
 4. Paddings
 5. Font-size
 6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
-7. Ширина карточек
 */
