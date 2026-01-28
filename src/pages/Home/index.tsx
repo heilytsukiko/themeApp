@@ -2,9 +2,12 @@
 import DSNotification from "@/components/DsNotification";
 
 const Home: React.FC = () => {
+    const arr: (string | number)[] = [1,2,3] ;
+
     return(
         <div className="Home">
-            <DSNotification backgroundColor="green" label="Ehreif"/>
+            {/* передается как проп в list и массив и обозначение маркера */}
+            <DSNotification backgroundColor="green" list={{list: arr, listMark: "mark"}}/>
         </div>
     )
 }

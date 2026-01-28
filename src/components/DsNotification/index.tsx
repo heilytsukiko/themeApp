@@ -4,8 +4,16 @@ import SpriteIcon from "@components/SpriteIcon";
 import "./style.css";
 
 export type TNotificationTypes = "warning" | "info";
+
+//тип для определения маркированности, нумерованности или отсутсвия маркеров
+type listType = "none" | "mark" | "number"
+
+// если поле list передано, то listMark обязателен
+type listProp = {list: undefined; listType: undefined} | {list: (string | number)[]; listMark: listType}
+
 export interface IFlexibleAlertProps {
     label?: string;
+    list?: listProp;
     type?: TNotificationTypes;
     backgroundColor?: string;
     textColor?: string;
@@ -30,6 +38,7 @@ const DEFAULT_ICON_SIZE: string = "19px";
 
 const DSNotification = ({
     label="",
+    list,
     type=NotificationTypes.warning,
     backgroundColor=NotificationBackgroundColors.beige,
     textColor="black",
@@ -40,6 +49,7 @@ const DSNotification = ({
     fullWidth=false,
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
+    const isList = list?.list; //хранит именно сам массив
 
     return (
         <div
@@ -57,7 +67,13 @@ const DSNotification = ({
                     width: fullWidth ? "100%" : "auto",
             }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
-            >{label}
+            >
+                {list && 
+                    <ul>
+                        {isList.map ((item) => 
+                            <li key={item}>{item}</li>
+                        )}
+                    </ul>}
             </Alert>
         </div>
     );
