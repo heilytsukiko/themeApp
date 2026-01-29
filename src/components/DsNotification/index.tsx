@@ -91,7 +91,7 @@ const DSNotification = ({
                 sx={{
                     '& .MuiAlert-icon': {
                         display: 'flex',
-                        alignSelf: `${imgPosition}`
+                        alignSelf: imgPosition,
                     },
                     display: 'flex',
                     gap: cardGap,
@@ -131,14 +131,3 @@ const DSNotification = ({
 };
 
 export default DSNotification;
-
-/* Что нужно сделать:
-1. поправить где пропсы, стили спутаны местами для читаемости в обоих файлах
-2. показать все три карточки
-6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
-
-Вопросы:
-1. у контента Alert есть padding(8px).  <div class="MuiAlert-message">. Нужно ли убрать? 
-На страницах они вроде не мешают
-2. Нужно ли добавить type размеров SVG картинки?  
-*/
