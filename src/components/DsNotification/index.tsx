@@ -27,6 +27,7 @@ export interface IFlexibleAlertProps {
     fullWidth?: boolean;
     cardWidth?: widthTypes;
     fontSize?: string;
+    padding?: string,
 }
 
 export enum NotificationBackgroundColors {
@@ -55,6 +56,7 @@ const DSNotification = ({
     fullWidth=false,
     cardWidth,
     fontSize = "16px",
+    padding = "12px 16px"
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
 
@@ -86,6 +88,7 @@ const DSNotification = ({
                     width: fullWidth ? "100%" : `${currentWidth}px`,
                     borderRadius: borderRadius,
                     fontSize: fontSize,
+                    padding: padding,
                 }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
                 
@@ -117,6 +120,9 @@ export default DSNotification;
 /* Что нужно сделать:
 1. позиционирование SVG картинки: flex-start, center, flex-end
 3. SVG size
-4. добавить изменение ширины контента и на внутренний контентный блок, тк он не подстраивается
 6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
+
+Вопросы:
+1. у контента Alert есть padding(8px).  <div class="MuiAlert-message">. Нужно ли убрать? 
+На страницах они вроде не мешают
 */

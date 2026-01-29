@@ -15,6 +15,7 @@ const Home: React.FC = () => {
                 cardWidth="middle"
                 borderRadius="25px"
                 fontSize="14px"
+                padding="15px 25px"
             />
         </div>
     )
