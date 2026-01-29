@@ -13,7 +13,7 @@ const Home: React.FC = () => {
                 content={arr}
                 listMark="none"
                 cardWidth="middle"
-                borderRadius={25}
+                borderRadius="25px"
                 fontSize="14px"
             />
         </div>
