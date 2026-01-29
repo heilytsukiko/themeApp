@@ -16,6 +16,7 @@ const Home: React.FC = () => {
                 borderRadius="25px"
                 fontSize="14px"
                 padding="15px 25px"
+                imgPosition="flex-start"
             />
         </div>
     )

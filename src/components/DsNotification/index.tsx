@@ -11,7 +11,9 @@ type list = (string | number)[];
 //тип для определения маркированности, нумерованности или отсутсвия маркеров
 type listTypes = "none" | "mark" | "number"
 
-type widthTypes = 'small' | 'middle' | 'large';
+type widthTypes = 'small' | 'middle' | 'large'
+
+type imgPosition = 'flex-start' | 'center' | 'flex-end'
 
 export interface IFlexibleAlertProps {
     content: list | label;
@@ -28,6 +30,7 @@ export interface IFlexibleAlertProps {
     cardWidth?: widthTypes;
     fontSize?: string;
     padding?: string,
+    imgPosition?: imgPosition,
 }
 
 export enum NotificationBackgroundColors {
@@ -56,7 +59,8 @@ const DSNotification = ({
     fullWidth=false,
     cardWidth,
     fontSize = "16px",
-    padding = "12px 16px"
+    padding = "12px 16px",
+    imgPosition = "center",
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
 
@@ -81,6 +85,13 @@ const DSNotification = ({
         >
             <Alert
                 className={`ds-mui-alert ds-alert-${type}`}
+                // sx пригодился, чтобы центрировать блок с картнкой
+                sx={{
+                    '& .MuiAlert-icon': {
+                        display: 'flex',
+                        alignSelf: `${imgPosition}`
+                    }
+                }}
                 // использовала style вместо sx, так как borderRadius не работал с sx
                 style={{
                     backgroundColor: backgroundColor,
@@ -118,7 +129,6 @@ const DSNotification = ({
 export default DSNotification;
 
 /* Что нужно сделать:
-1. позиционирование SVG картинки: flex-start, center, flex-end
 3. SVG size
 6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
 

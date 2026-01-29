@@ -24,6 +24,7 @@ const SpriteIcon = ({
             color={color}
             aria-hidden="true"
             focusable="false"
+            style={{ backgroundColor: 'black'}}
         >
             <use
                 href={fullIconId}
