@@ -31,6 +31,7 @@ export interface IFlexibleAlertProps {
     fontSize?: string;
     padding?: string,
     imgPosition?: imgPosition,
+    cardGap?: string,
 }
 
 export enum NotificationBackgroundColors {
@@ -61,6 +62,7 @@ const DSNotification = ({
     fontSize = "16px",
     padding = "12px 16px",
     imgPosition = "center",
+    cardGap = "5px"
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
 
@@ -90,7 +92,9 @@ const DSNotification = ({
                     '& .MuiAlert-icon': {
                         display: 'flex',
                         alignSelf: `${imgPosition}`
-                    }
+                    },
+                    display: 'flex',
+                    gap: cardGap,
                 }}
                 // использовала style вместо sx, так как borderRadius не работал с sx
                 style={{
@@ -129,10 +133,12 @@ const DSNotification = ({
 export default DSNotification;
 
 /* Что нужно сделать:
-3. SVG size
+1. поправить где пропсы, стили спутаны местами для читаемости в обоих файлах
+2. показать все три карточки
 6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
 
 Вопросы:
 1. у контента Alert есть padding(8px).  <div class="MuiAlert-message">. Нужно ли убрать? 
 На страницах они вроде не мешают
+2. Нужно ли добавить type размеров SVG картинки?  
 */

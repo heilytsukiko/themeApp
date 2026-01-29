@@ -15,7 +15,9 @@ const Home: React.FC = () => {
                 cardWidth="middle"
                 borderRadius="25px"
                 fontSize="14px"
+                iconSize="62px"
                 padding="15px 25px"
+                cardGap="27px"
                 imgPosition="flex-start"
             />
         </div>
