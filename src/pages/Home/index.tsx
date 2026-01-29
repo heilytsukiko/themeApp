@@ -11,9 +11,10 @@ const Home: React.FC = () => {
                 borderColor="white"
                 textColor="white"
                 content={arr}
-                listMark='none'
-                cardWidth='middle'
+                listMark="none"
+                cardWidth="middle"
                 borderRadius={25}
+                fontSize="14px"
             />
         </div>
     )

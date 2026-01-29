@@ -26,6 +26,7 @@ export interface IFlexibleAlertProps {
     iconColor?: string;
     fullWidth?: boolean;
     cardWidth?: widthTypes;
+    fontSize?: string;
 }
 
 export enum NotificationBackgroundColors {
@@ -53,6 +54,7 @@ const DSNotification = ({
     iconColor="#BD7D22",
     fullWidth=false,
     cardWidth,
+    fontSize = '16px',
 }: IFlexibleAlertProps): ReactElement => {
     const dsBorderColor = borderColor ? borderColor : backgroundColor;
 
@@ -83,6 +85,7 @@ const DSNotification = ({
                     color: textColor,
                     width: fullWidth ? "100%" : "auto",
                     borderRadius: `${borderRadius}px`,
+                    fontSize: fontSize,
                 }}
                 icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
                 
@@ -113,9 +116,9 @@ export default DSNotification;
 
 /* Что нужно сделать:
 1. позиционирование SVG картинки: flex-start, center, flex-end
-2. border
+2. сменить тип borderRadius на строку
 3. SVG size
-4. Paddings
+4. добавить изменение ширины контента и на внутренний контентный блок, тк он не подстраивается
 5. Font-size
 6. Расстояние между текстом и картинкой(27, 10, 24 пикселя)
 */
