@@ -23,7 +23,8 @@ export interface IFlexibleAlertProps {
     borderColor?: string;
     borderRadius?: string;
     iconName?: string;
-    iconSize?: string;
+    iconWidth?: string;
+    iconHeight?: string;
     iconColor?: string;
     fullWidth?: boolean;
     cardWidth?: WidthTypes;
@@ -54,7 +55,8 @@ const DSNotification = ({
     borderColor=NotificationBackgroundColors.lightSand,
     borderRadius = "6px",
     iconName="warningIcon",
-    iconSize=DEFAULT_ICON_SIZE,
+    iconWidth=DEFAULT_ICON_SIZE,
+    iconHeight=DEFAULT_ICON_SIZE,
     iconColor="#BD7D22",
     fullWidth=false,
     cardWidth = "large",
@@ -91,6 +93,8 @@ const DSNotification = ({
                     '& .MuiAlert-icon': {
                         display: 'flex',
                         alignSelf: imgPosition,
+                        padding: 0,
+                        margin: 0,
                     },
                     display: 'flex',
                     gap: cardGap,
@@ -104,8 +108,7 @@ const DSNotification = ({
                     fontSize: fontSize,
                     padding: padding,
                 }}
-                icon={<SpriteIcon iconId={iconName} size={iconSize} color={iconColor}/>}
-                
+                icon={<SpriteIcon iconId={iconName} width={iconWidth} height={iconHeight} color={iconColor}/>}
             >
                 {!isArray && content}
 
