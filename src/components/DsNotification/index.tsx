@@ -5,19 +5,18 @@ import "./style.css";
 
 export type TNotificationTypes = "warning" | "info";
 
-type label = string;
-type list = (string | number)[];
+type Label = string;
+type List = string[];
 
-//тип для определения маркированности, нумерованности или отсутсвия маркеров
-type listTypes = "none" | "mark" | "number"
+type ListTypes = "none" | "mark" | "number"
 
-type widthTypes = 'small' | 'middle' | 'large'
+type WidthTypes = 'small' | 'middle' | 'large'
 
-type imgPosition = 'flex-start' | 'center' | 'flex-end'
+type ImgPosition = 'flex-start' | 'center' | 'flex-end'
 
 export interface IFlexibleAlertProps {
-    content: list | label;
-    listMark?: listTypes;
+    content: List | Label;
+    listMark?: ListTypes;
     type?: TNotificationTypes;
     backgroundColor?: string;
     textColor?: string;
@@ -27,10 +26,10 @@ export interface IFlexibleAlertProps {
     iconSize?: string;
     iconColor?: string;
     fullWidth?: boolean;
-    cardWidth?: widthTypes;
+    cardWidth?: WidthTypes;
     fontSize?: string;
     padding?: string,
-    imgPosition?: imgPosition,
+    imgPosition?: ImgPosition,
     cardGap?: string,
 }
 
@@ -58,7 +57,7 @@ const DSNotification = ({
     iconSize=DEFAULT_ICON_SIZE,
     iconColor="#BD7D22",
     fullWidth=false,
-    cardWidth,
+    cardWidth = "large",
     fontSize = "16px",
     padding = "12px 16px",
     imgPosition = "center",
@@ -74,20 +73,20 @@ const DSNotification = ({
         'large': 692,
     }
     
-    const currentWidth = cardWidth != undefined ? widthSizes[cardWidth] : undefined
+    const currentWidth = widthSizes[cardWidth]
 
     return (
         <div
             className="ds-notification"
             style={{
-                width: fullWidth ? "100%" : `${currentWidth}px`,
+                width: fullWidth ? "100%" : "auto",
+                maxWidth: !fullWidth ? `${currentWidth}px` : '',
                 border: `1px solid ${dsBorderColor}`,
                 borderRadius: borderRadius,
             }}
         >
             <Alert
                 className={`ds-mui-alert ds-alert-${type}`}
-                // sx пригодился, чтобы центрировать блок с картнкой
                 sx={{
                     '& .MuiAlert-icon': {
                         display: 'flex',
@@ -96,11 +95,11 @@ const DSNotification = ({
                     display: 'flex',
                     gap: cardGap,
                 }}
-                // использовала style вместо sx, так как borderRadius не работал с sx
                 style={{
                     backgroundColor: backgroundColor,
                     color: textColor,
-                    width: fullWidth ? "100%" : `${currentWidth}px`,
+                    width: fullWidth ? "100%" : "auto",
+                    maxWidth: !fullWidth ? `${currentWidth}px` : '',
                     borderRadius: borderRadius,
                     fontSize: fontSize,
                     padding: padding,
@@ -110,7 +109,7 @@ const DSNotification = ({
             >
                 {!isArray && content}
 
-                {isArray && (listMark != 'mark' || 'none') && (listMark === 'number') &&
+                {isArray && (listMark === 'number') &&
                     <ol className="list">
                         {content.map ((item) => 
                             <li key={item}> {item} </li>
@@ -118,7 +117,7 @@ const DSNotification = ({
                     </ol>
                 }
                 
-                {isArray && (listMark === 'mark' || 'none' ) && (listMark != 'number') &&
+                {isArray && (listMark === 'mark' || 'none' ) &&
                     <ul className={`list ${listMark === 'none'?  'mark-none' : ''}`}>
                         {content.map ((item) => 
                             <li key={item}> {item} </li>
