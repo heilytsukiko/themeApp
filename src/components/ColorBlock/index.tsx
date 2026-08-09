@@ -10,7 +10,8 @@ const ColorBlock = () => {
             style={{
                 width: "100px", 
                 height: "100px",
-                backgroundColor: appData?.color
+                marginInline: "auto",
+                backgroundColor: appData?.value.color
             }}
         >
         </div>

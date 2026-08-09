@@ -9,11 +9,16 @@ export interface IAppData {
   color: string;
 }
 
+export interface IAppContextData {
+  value: IAppData;
+  setValue: React.Dispatch<React.SetStateAction<IAppData>>;
+}
+
 function App() {
   const [mockData, setMockData] = useState<IAppData>({content: 'mockData', color: '#aa1010'})
 
   return (
-    <AppContext.Provider value={mockData}>
+    <AppContext.Provider value={{ value: mockData, setValue: setMockData }}>
       <Card />
       <ColorBlock/>
     </AppContext.Provider>
